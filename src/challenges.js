@@ -88,7 +88,27 @@ const duplicateWords = [
   "bring"
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arrayOfWordss) {
+  const finishedArrays = [];
+  const encountered = {};
+  const duplicates = [];
+  if(arrayOfWordss.length === 0){
+    return null;
+  }
+  for (let i = 0; i < arrayOfWordss.length;i++){
+    const currentWords = arrayOfWordss[i];
+    if(encountered[currentWords]){
+      if(!duplicates.includes(currentWords)){
+        duplicates.push(currentWords);
+      }
+    }else {
+      finishedArrays.push(currentWords)
+      encountered[currentWords] = true;
+    }
+  }
+  return finishedArrays;
+
+}
 
 
 
